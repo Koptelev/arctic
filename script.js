@@ -337,9 +337,6 @@ function animateCounters() {
     // Animate stations count
     animateCounter('stations-active', 0, 4, 1500, '');
     
-    // Animate revenue
-    animateCounter('revenue-amount', 0, 2500000, 2500, ' ₽');
-    
     // Animate success rate
     animateCounter('success-rate', 0, 87, 1800, '%');
 }
@@ -378,7 +375,6 @@ function loadPowerBIData() {
     const mockData = {
         participants: 127,
         stations: 4,
-        revenue: 2500000,
         successRate: 87
     };
     
@@ -386,7 +382,6 @@ function loadPowerBIData() {
     setTimeout(() => {
         document.getElementById('participants-count').textContent = mockData.participants.toLocaleString('ru-RU');
         document.getElementById('stations-active').textContent = mockData.stations;
-        document.getElementById('revenue-amount').textContent = mockData.revenue.toLocaleString('ru-RU') + ' ₽';
         document.getElementById('success-rate').textContent = mockData.successRate + '%';
     }, 3000);
 }
@@ -402,7 +397,7 @@ function initBackgroundRotation() {
         document.querySelector('.tips-bg-image'),
         document.querySelector('.prizes-bg-image'),
         // document.querySelector('.results-bg-image'), // Fixed background - lototen-norway-5k-j9-2048x1152.jpg
-        document.querySelector('.final-cta-bg-image')
+        // document.querySelector('.final-cta-bg-image') // Fixed background - antarctica-1920-x-1280-background-f3lers2uo4534xnt.jpg
     ];
     
     const backgrounds = [

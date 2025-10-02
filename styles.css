@@ -1160,6 +1160,7 @@ section:not(:last-child)::after {
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('fon/antarctica-1920-x-1280-background-f3lers2uo4534xnt.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
