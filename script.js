@@ -401,7 +401,7 @@ function initBackgroundRotation() {
         document.querySelector('.stations-bg-image'),
         document.querySelector('.tips-bg-image'),
         document.querySelector('.prizes-bg-image'),
-        document.querySelector('.results-bg-image'),
+        // document.querySelector('.results-bg-image'), // Fixed background - lototen-norway-5k-j9-2048x1152.jpg
         document.querySelector('.final-cta-bg-image')
     ];
     

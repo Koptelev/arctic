@@ -1026,6 +1026,7 @@ section:not(:last-child)::after {
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('fon/lototen-norway-5k-j9-2048x1152.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
