@@ -1040,9 +1040,6 @@ section:not(:last-child)::after {
     z-index: 2;
 }
 
-.results .section-title {
-    color: var(--neon-orange);
-}
 
 .results-grid {
     display: grid;
