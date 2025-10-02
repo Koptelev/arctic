@@ -337,8 +337,8 @@ function animateCounters() {
     // Animate stations count
     animateCounter('stations-active', 0, 4, 1500, '');
     
-    // Animate success rate
-    animateCounter('success-rate', 0, 87, 1800, '%');
+    // Animate kilometers traveled
+    animateCounter('kilometers-traveled', 0, 15420, 2000, '');
 }
 
 function animateCounter(elementId, start, end, duration, suffix) {
@@ -375,14 +375,14 @@ function loadPowerBIData() {
     const mockData = {
         participants: 127,
         stations: 4,
-        successRate: 87
+        kilometersTraveled: 15420
     };
     
     // Update counters with real data if available
     setTimeout(() => {
         document.getElementById('participants-count').textContent = mockData.participants.toLocaleString('ru-RU');
         document.getElementById('stations-active').textContent = mockData.stations;
-        document.getElementById('success-rate').textContent = mockData.successRate + '%';
+        document.getElementById('kilometers-traveled').textContent = mockData.kilometersTraveled.toLocaleString('ru-RU');
     }, 3000);
 }
 
