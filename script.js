@@ -312,6 +312,85 @@ function initBackgroundMusic() {
     }
 }
 
+// Results Section - Animated Counters and Power BI Integration
+function initResultsSection() {
+    // Animate counters when section comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const resultsSection = document.querySelector('.results');
+    if (resultsSection) {
+        observer.observe(resultsSection);
+    }
+}
+
+function animateCounters() {
+    // Animate participants count
+    animateCounter('participants-count', 0, 127, 2000, '');
+    
+    // Animate stations count
+    animateCounter('stations-active', 0, 4, 1500, '');
+    
+    // Animate revenue
+    animateCounter('revenue-amount', 0, 2500000, 2500, ' ₽');
+    
+    // Animate success rate
+    animateCounter('success-rate', 0, 87, 1800, '%');
+}
+
+function animateCounter(elementId, start, end, duration, suffix) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + (end - start) * easeOutQuart);
+        
+        // Format number with spaces for thousands
+        const formatted = current.toLocaleString('ru-RU');
+        element.textContent = formatted + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+// Power BI Data Integration (placeholder for future implementation)
+function loadPowerBIData() {
+    // This function would integrate with Power BI REST API
+    // For now, we'll use mock data that can be replaced with real API calls
+    
+    const mockData = {
+        participants: 127,
+        stations: 4,
+        revenue: 2500000,
+        successRate: 87
+    };
+    
+    // Update counters with real data if available
+    setTimeout(() => {
+        document.getElementById('participants-count').textContent = mockData.participants.toLocaleString('ru-RU');
+        document.getElementById('stations-active').textContent = mockData.stations;
+        document.getElementById('revenue-amount').textContent = mockData.revenue.toLocaleString('ru-RU') + ' ₽';
+        document.getElementById('success-rate').textContent = mockData.successRate + '%';
+    }, 3000);
+}
+
 // Music control button removed - music plays automatically
 
 // Background Image Rotation
@@ -322,6 +401,7 @@ function initBackgroundRotation() {
         document.querySelector('.stations-bg-image'),
         document.querySelector('.tips-bg-image'),
         document.querySelector('.prizes-bg-image'),
+        document.querySelector('.results-bg-image'),
         document.querySelector('.final-cta-bg-image')
     ];
     
@@ -375,6 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initParallaxEffect();
     initBackgroundMusic(); // Initialize background music
+    initResultsSection(); // Initialize results section with animated counters
     
     // Add loading animation
     document.body.style.opacity = '0';
